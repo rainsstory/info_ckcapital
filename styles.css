@@ -111,7 +111,7 @@ h1 {
 
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -133,6 +133,10 @@ h1 {
 
 .feature-card:nth-child(3) {
   animation-delay: 0.16s;
+}
+
+.feature-card:nth-child(4) {
+  animation-delay: 0.24s;
 }
 
 .card-topline {
@@ -212,6 +216,10 @@ h2 {
 
 .feature-card:nth-child(3) .cta {
   animation-delay: 0.7s;
+}
+
+.feature-card:nth-child(4) .cta {
+  animation-delay: 1.05s;
 }
 
 .footer {
