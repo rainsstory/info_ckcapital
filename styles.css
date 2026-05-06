@@ -229,6 +229,48 @@ h2 {
   font-size: 0.85rem;
 }
 
+.video-section {
+  margin: 28px auto 0;
+  width: min(440px, 100%);
+  text-align: center;
+}
+
+.video-title {
+  margin: 0 0 14px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+  color: var(--title);
+}
+
+.video-frame-wrap {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 10px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.video-frame {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border: 0;
+  border-radius: 14px;
+  display: block;
+}
+
+.video-link {
+  margin-top: 12px;
+  display: inline-block;
+  color: #d4e8ff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 700;
+}
+
+.video-link:hover {
+  color: #ffffff;
+}
+
 @media (max-width: 960px) {
   .feature-grid {
     grid-template-columns: 1fr;
@@ -241,6 +283,10 @@ h2 {
   .feature-card {
     padding: 20px;
     text-align: center;
+  }
+
+  .video-section {
+    margin-top: 24px;
   }
 
   .feature-card .card-topline {
