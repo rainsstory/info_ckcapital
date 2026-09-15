@@ -139,6 +139,19 @@ h1 {
   animation-delay: 0.24s;
 }
 
+/* 5th card is alone on its row, so span both columns and center its content */
+.feature-card:nth-child(5) {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 8px);
+  margin: 0 auto;
+  text-align: center;
+  animation-delay: 0.32s;
+}
+
+.feature-card:nth-child(5) .card-topline {
+  margin: 0 auto 14px;
+}
+
 .card-topline {
   width: 62px;
   height: 4px;
