@@ -142,7 +142,7 @@ h1 {
 /* 5th card is alone on its row, so span both columns and center its content */
 .feature-card:nth-child(5) {
   grid-column: 1 / -1;
-  max-width: calc(50% - 8px);
+  width: calc(50% - 8px);
   margin: 0 auto;
   text-align: center;
   animation-delay: 0.32s;
@@ -321,6 +321,11 @@ h2 {
   .feature-card {
     padding: 20px;
     text-align: center;
+  }
+
+  .feature-card:nth-child(5) {
+    max-width: none;
+    width: 100%;
   }
 
   .video-section {
