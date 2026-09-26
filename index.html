@@ -65,19 +65,61 @@
           <p class="cta-subtitle">Nhấn giữ 3s -> Chọn <strong>Mở liên kết</strong></p>
         </article>
 
-        <article class="feature-card">
+        <article class="feature-card feature-card--menu">
           <div class="card-topline"></div>
           <p class="card-label">Hoàn phí</p>
           <h2>Tốt nhất thị trường</h2>
-        
-          <a
-            class="cta"
-            href="https://t.me/helen_ckcapital"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Liên hệ Helen - CK Capital</a
-          >
-          <p class="cta-subtitle">Nhấn giữ 3s -> Chọn <strong>Mở liên kết</strong></p>
+
+          <div class="contact-menu-wrap">
+            <button
+              type="button"
+              class="cta cta-toggle"
+              id="helenContactBtn"
+              aria-haspopup="menu"
+              aria-expanded="false"
+              aria-controls="helenContactMenu"
+            >
+              Liên hệ Helen - CK Capital
+            </button>
+
+            <div
+              class="contact-menu"
+              id="helenContactMenu"
+              role="menu"
+              aria-labelledby="helenContactBtn"
+              hidden
+            >
+              <a
+                class="contact-menu-item"
+                role="menuitem"
+                href="https://t.me/helen_ckcapital"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="contact-menu-icon telegram" aria-hidden="true"></span>
+                <span class="contact-menu-copy">
+                  <strong>Telegram</strong>
+                  <small>@helen_ckcapital</small>
+                </span>
+              </a>
+
+              <a
+                class="contact-menu-item"
+                role="menuitem"
+                href="https://zalo.me/0965999262"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="contact-menu-icon zalo" aria-hidden="true"></span>
+                <span class="contact-menu-copy">
+                  <strong>Zalo</strong>
+                  <small>0965.999.262</small>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <p class="cta-subtitle">Bấm để chọn <strong>Telegram</strong> hoặc <strong>Zalo</strong></p>
         </article>
 
         <article class="feature-card">
@@ -144,5 +186,58 @@
         <p>CK Capital • Crypto Insights & Trading Community</p>
       </footer>
     </main>
+
+    <script>
+      (function () {
+        var button = document.getElementById("helenContactBtn");
+        var menu = document.getElementById("helenContactMenu");
+        if (!button || !menu) return;
+
+        function isOpen() {
+          return button.getAttribute("aria-expanded") === "true";
+        }
+
+        function setOpen(open) {
+          button.setAttribute("aria-expanded", open ? "true" : "false");
+          if (open) {
+            menu.removeAttribute("hidden");
+          } else {
+            menu.setAttribute("hidden", "");
+          }
+        }
+
+        // Tap/click on the button toggles the menu (works on touch devices too).
+        button.addEventListener("click", function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          setOpen(!isOpen());
+        });
+
+        // Clicks inside the menu must not bubble to the document handler,
+        // otherwise the menu would close before the link is followed.
+        menu.addEventListener("click", function (event) {
+          event.stopPropagation();
+          var item = event.target && event.target.closest
+            ? event.target.closest(".contact-menu-item")
+            : null;
+          // Closing here never blocks the link: the anchor keeps its default
+          // action (opens in a new tab) even after the menu is hidden.
+          if (item) setOpen(false);
+        });
+
+        // Click / tap outside closes the menu.
+        document.addEventListener("click", function () {
+          if (isOpen()) setOpen(false);
+        });
+
+        // Esc closes the menu and returns focus to the button.
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && isOpen()) {
+            setOpen(false);
+            button.focus();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

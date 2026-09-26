@@ -394,6 +394,117 @@ h2 {
   }
 }
 
+/* --- Helen contact menu (Telegram + Zalo dropdown) --- */
+
+/* The dropdown overflows the card, so this card must not clip it and must
+   paint above the neighbouring cards. */
+.feature-card--menu {
+  overflow: visible;
+  z-index: 5;
+}
+
+.contact-menu-wrap {
+  position: relative;
+}
+
+.cta-toggle {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.cta-toggle::after {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.cta-toggle[aria-expanded="true"]::after {
+  transform: rotate(90deg);
+}
+
+.contact-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 40;
+  min-width: min(260px, 100%);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 16px 40px rgba(6, 22, 48, 0.28);
+}
+
+.contact-menu[hidden] {
+  display: none;
+}
+
+.contact-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background 0.18s ease;
+}
+
+.contact-menu-item:hover,
+.contact-menu-item:focus-visible {
+  background: #eef4ff;
+  outline: none;
+}
+
+.contact-menu-icon {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: #229ed9;
+}
+
+.contact-menu-icon.telegram {
+  background: #229ed9;
+}
+
+.contact-menu-icon.zalo {
+  background: #0068ff;
+}
+
+.contact-menu-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.contact-menu-copy strong {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #0b1f38;
+}
+
+.contact-menu-copy small {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #4a6b93;
+}
+
+@media (max-width: 960px) {
+  .contact-menu-wrap {
+    text-align: center;
+  }
+
+  .contact-menu {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes ctaPulse {
   0%,
   100% {
